@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 import { AsisteciaPasanteComponent } from './asistecia-pasante/asistecia-pasante.component';
 import { AsisteciaEquipoComponent } from './asistecia-equipo/asistecia-equipo.component';
 import { AsisteciaProfesorComponent } from './asistecia-profesor/asistecia-profesor.component';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 
 
 @NgModule({
@@ -13,7 +14,16 @@ import { AsisteciaProfesorComponent } from './asistecia-profesor/asistecia-profe
     AsisteciaProfesorComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule,
+    FormsModule
+  ],
+  exports:[
+    AsisteciaPasanteComponent,
+    AsisteciaEquipoComponent,
+    AsisteciaProfesorComponent,
+    
+
   ]
 })
 export class AsistenciaModule { }

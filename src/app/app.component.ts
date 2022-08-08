@@ -24,11 +24,9 @@ export class AppComponent implements OnInit {
   public getUsuario(){
     this.loginService.getUsuario('63').subscribe(
       (response: any) => {
-        
         this.datosUsuario = response;
         this.codCargo = response[0];
         this.getInicialesUsuario(response[1]);
-        // this.inicialesUsuario = response[0]
         console.log(this.datosUsuario)
       }
     );

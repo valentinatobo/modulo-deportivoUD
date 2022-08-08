@@ -1,1 +1,26 @@
-<p>asistecia-pasante works!</p>
+<h1>Asistencia Pasante</h1>
+
+<div class="containerdatos">
+    <div class="input">
+        <input type="text" placeholder="Codigo Estudiante" [(ngModel)]="codigoPasante">
+        <button (click)="consultar()">Consultar</button>
+    </div>
+    <div class="informacion">
+        <div class="datosPasante">
+            <label for="">Codigo: {{this.informacionPasante[0]}}</label>
+            <label for="">Nombre: {{this.informacionPasante[1]}} </label>
+            <label for="">Apellido: {{this.informacionPasante[2]}}</label>
+        </div>
+        <div class="datosPasante">
+            <label for="">Correo: {{this.informacionPasante[4]}}</label>
+            <label for="">Sede: {{this.informacionPasante[3]}}</label>
+            <label for="">Periodo: {{this.informacionPasante[6]}} </label>
+        </div>
+        <div class="containfecha">
+            <label for="">Fecha: {{this.informacionPasante[5]}} {{this.informacionPasante[6]}}</label>
+
+            <label for="">Hora</label>
+            <input type="time">
+        </div>
+    </div>
+</div>
