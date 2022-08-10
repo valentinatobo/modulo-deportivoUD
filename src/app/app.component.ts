@@ -34,6 +34,13 @@ export class AppComponent implements OnInit {
 
   addItem(newItem: string) {
     console.log(newItem);
+    if(newItem=='PASANTE'){
+      this.Asis='PASANTE'
+    }else if(newItem=='EQUIPO'){
+      this.Asis='EQUIPO'
+    }else if(newItem=='DOCENTE'){
+      this.Asis='PROFESOR'
+    }
   }
 
   public getUsuario(){
