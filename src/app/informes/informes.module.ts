@@ -9,7 +9,11 @@ import { AsistenciasComponent } from './asistencias/asistencias.component';
     AsistenciasComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    
+  ],
+  exports:[
+    AsistenciasComponent
   ]
 })
 export class InformesModule { }

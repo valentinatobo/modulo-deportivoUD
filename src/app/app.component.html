@@ -1,6 +1,6 @@
-<router-outlet></router-outlet>
+<!-- <router-outlet></router-outlet> -->
 
-  <div class="container">
+<!-- <div class="container">
 
     <div class="encabezado">
       <div style="width: 65px; height: 65px; margin: 15px;">
@@ -27,18 +27,110 @@
       </svg></a>
     </div>
     
+  </div> -->
+
+<div class="log" *ngIf="state=='LOGIN'">
+  <div class="containerLogin">
+    <div class="img">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-browser-edge"
+        viewBox="0 0 16 16">
+        <path
+          d="M9.482 9.341c-.069.062-.17.153-.17.309 0 .162.107.325.3.456.877.613 2.521.54 2.592.538h.002c.667 0 1.32-.18 1.894-.519A3.838 3.838 0 0 0 16 6.819c.018-1.316-.44-2.218-.666-2.664l-.04-.08C13.963 1.487 11.106 0 8 0A8 8 0 0 0 .473 5.29C1.488 4.048 3.183 3.262 5 3.262c2.83 0 5.01 1.885 5.01 4.797h-.004v.002c0 .338-.168.832-.487 1.244l.006-.006a.594.594 0 0 1-.043.041Z" />
+        <path
+          d="M.01 7.753a8.137 8.137 0 0 0 .753 3.641 8 8 0 0 0 6.495 4.564 5.21 5.21 0 0 1-.785-.377h-.01l-.12-.075a5.45 5.45 0 0 1-1.56-1.463A5.543 5.543 0 0 1 6.81 5.8l.01-.004.025-.012c.208-.098.62-.292 1.167-.285.129.001.257.012.384.033a4.037 4.037 0 0 0-.993-.698l-.01-.005C6.348 4.282 5.199 4.263 5 4.263c-2.44 0-4.824 1.634-4.99 3.49Zm10.263 7.912c.088-.027.177-.054.265-.084-.102.032-.204.06-.307.086l.042-.002Z" />
+        <path
+          d="M10.228 15.667a5.21 5.21 0 0 0 .303-.086l.082-.025a8.019 8.019 0 0 0 4.162-3.3.25.25 0 0 0-.331-.35c-.215.112-.436.21-.663.294a6.367 6.367 0 0 1-2.243.4c-2.957 0-5.532-2.031-5.532-4.644.002-.135.017-.268.046-.399a4.543 4.543 0 0 0-.46 5.898l.003.005c.315.441.707.821 1.158 1.121h.003l.144.09c.877.55 1.721 1.078 3.328.996Z" />
+      </svg>
+    </div>
+    <input type="text" placeholder="Codgio Empleado" [(ngModel)]="id">
+    <button (click)="getUsuario()">Ingresar</button>
+    <p>{{mensaje}}</p>
   </div>
+</div>
 
+<div class="director" *ngIf="state=='DIRECTOR'">
+  <div class="container">
 
-<!-- <div class="navbar" *ngIf="this.codCargo=='1'">
-  <h3>Registro asistencias</h3>
-  <button>Pasante</button>
-  <button>Equipos</button>
-  <button>Docente</button>
-</div> -->
+    <div class="encabezado">
+      <div style="width: 65px; height: 65px; margin: 15px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="currentColor" class="bi bi-dribbble"
+          viewBox="0 0 16 16">
+          <path fill-rule="evenodd"
+            d="M8 0C3.584 0 0 3.584 0 8s3.584 8 8 8c4.408 0 8-3.584 8-8s-3.592-8-8-8zm5.284 3.688a6.802 6.802 0 0 1 1.545 4.251c-.226-.043-2.482-.503-4.755-.217-.052-.112-.096-.234-.148-.355-.139-.33-.295-.668-.451-.99 2.516-1.023 3.662-2.498 3.81-2.69zM8 1.18c1.735 0 3.323.65 4.53 1.718-.122.174-1.155 1.553-3.584 2.464-1.12-2.056-2.36-3.74-2.551-4A6.95 6.95 0 0 1 8 1.18zm-2.907.642A43.123 43.123 0 0 1 7.627 5.77c-3.193.85-6.013.833-6.317.833a6.865 6.865 0 0 1 3.783-4.78zM1.163 8.01V7.8c.295.01 3.61.053 7.02-.971.199.381.381.772.555 1.162l-.27.078c-3.522 1.137-5.396 4.243-5.553 4.504a6.817 6.817 0 0 1-1.752-4.564zM8 14.837a6.785 6.785 0 0 1-4.19-1.44c.12-.252 1.509-2.924 5.361-4.269.018-.009.026-.009.044-.017a28.246 28.246 0 0 1 1.457 5.18A6.722 6.722 0 0 1 8 14.837zm3.81-1.171c-.07-.417-.435-2.412-1.328-4.868 2.143-.338 4.017.217 4.251.295a6.774 6.774 0 0 1-2.924 4.573z" />
+        </svg>
+      </div>
+      <h2>Modulo Deportivo - Director</h2>
+    </div>
 
-<app-navbar></app-navbar>
+    <div class="datos">
+      <label for="">Fecha: {{datosUsuario[3]}} </label>
+      <label for="">Hora: {{datosUsuario[4]}} </label>
+      <label for="">Sede: {{datosUsuario[2]}} </label>
+    </div>
 
+    <div class="nombre table-cta">
+      <p> {{this.inicialesUsuario}}<span class="texto">{{datosUsuario[1]}}</span></p>
+
+    </div>
+    <div class="exit">
+      <a (click)="logout()" href=""><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white"
+          class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+          <path
+            d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+        </svg></a>
+    </div>
+
+  </div>
+  <app-asistencias></app-asistencias>
+</div>
+
+<div class="asistente" *ngIf="state=='ASISTENCIA'">
+  <div class="container">
+
+    <div class="encabezado">
+      <div style="width: 65px; height: 65px; margin: 15px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="currentColor" class="bi bi-dribbble"
+          viewBox="0 0 16 16">
+          <path fill-rule="evenodd"
+            d="M8 0C3.584 0 0 3.584 0 8s3.584 8 8 8c4.408 0 8-3.584 8-8s-3.592-8-8-8zm5.284 3.688a6.802 6.802 0 0 1 1.545 4.251c-.226-.043-2.482-.503-4.755-.217-.052-.112-.096-.234-.148-.355-.139-.33-.295-.668-.451-.99 2.516-1.023 3.662-2.498 3.81-2.69zM8 1.18c1.735 0 3.323.65 4.53 1.718-.122.174-1.155 1.553-3.584 2.464-1.12-2.056-2.36-3.74-2.551-4A6.95 6.95 0 0 1 8 1.18zm-2.907.642A43.123 43.123 0 0 1 7.627 5.77c-3.193.85-6.013.833-6.317.833a6.865 6.865 0 0 1 3.783-4.78zM1.163 8.01V7.8c.295.01 3.61.053 7.02-.971.199.381.381.772.555 1.162l-.27.078c-3.522 1.137-5.396 4.243-5.553 4.504a6.817 6.817 0 0 1-1.752-4.564zM8 14.837a6.785 6.785 0 0 1-4.19-1.44c.12-.252 1.509-2.924 5.361-4.269.018-.009.026-.009.044-.017a28.246 28.246 0 0 1 1.457 5.18A6.722 6.722 0 0 1 8 14.837zm3.81-1.171c-.07-.417-.435-2.412-1.328-4.868 2.143-.338 4.017.217 4.251.295a6.774 6.774 0 0 1-2.924 4.573z" />
+        </svg>
+      </div>
+      <h2>Modulo Deportivo -Auxiliar </h2>
+    </div>
+
+    <div class="datos">
+      <label for="">Fecha: {{datosUsuario[3]}} </label>
+      <label for="">Hora: {{datosUsuario[4]}} </label>
+      <label for="">Sede: {{datosUsuario[2]}} </label>
+    </div>
+
+    <div class="nombre table-cta">
+      <p> {{this.inicialesUsuario}}<span class="texto">{{datosUsuario[1]}}</span></p>
+
+    </div>
+    <div class="exit">
+      <a (click)="logout()" ref=""><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white"
+          class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+          <path
+            d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+        </svg></a>
+    </div>
+
+  </div>
+  <app-navbar (newItemEvent)="addItem($event)"></app-navbar>
+  <div class="pasante" *ngIf="Asis=='PASANTE'">
+    <app-asistecia-pasante></app-asistecia-pasante>
+  </div>
+  <div class="profespr" *ngIf="Asis=='PROFESOR'">
+    <app-asistecia-profesor></app-asistecia-profesor>
+  </div>
+  <div class="equipo" *ngIf="Asis=='EQUIPO'">
+    <app-asistecia-equipo></app-asistecia-equipo>
+  </div>
+</div>
+
+<!-- <app-navbar></app-navbar> -->
+<!-- <app-asistencias></app-asistencias> -->
 <!-- <app-asistecia-profesor></app-asistecia-profesor> -->
-<app-asistecia-pasante></app-asistecia-pasante>
+<!-- <app-asistecia-pasante></app-asistecia-pasante> -->
 <!-- <app-asistecia-equipo></app-asistecia-equipo> -->

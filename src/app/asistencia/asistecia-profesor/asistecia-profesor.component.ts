@@ -12,7 +12,7 @@ export class AsisteciaProfesorComponent implements OnInit {
 
   nombreProfesor='';
   informacionProfesor = [];
-  mensaje = '';
+  
   informacionClase = [];
   informacionEquiposD = [];
   informacionEquiposND = [];
@@ -21,6 +21,7 @@ export class AsisteciaProfesorComponent implements OnInit {
   consecutivo!:any ;
   items:string[]=[];
   itemsPrestados ={id:['']}
+  mensaje = '';
   public state: 'CLASS'|'NONE' = 'CLASS';
   public _state: 'ADD'|'NONE' = 'ADD';
   constructor(private asisService : AsistenciasService) { }

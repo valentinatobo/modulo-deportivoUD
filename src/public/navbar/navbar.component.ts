@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -10,6 +10,12 @@ export class NavbarComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  @Output() newItemEvent = new EventEmitter<string>();
+
+  public enrutaBotones(vista: string){
+    this.newItemEvent.emit(vista);
   }
 
 }

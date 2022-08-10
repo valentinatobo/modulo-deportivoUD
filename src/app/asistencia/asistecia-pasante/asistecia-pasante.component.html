@@ -15,7 +15,7 @@
             <label class="fecha neg" for="">Fecha: </label>
             <label class="fecha" for="">{{this.informacionPasante[5]}} {{this.informacionPasante[6]}}</label>
             <label for="" class="neg">Hora: </label>
-            <input class="hora" type="time" value="{{this.informacionPasante[6]}}">
+            <input class="hora" type="time" value="{{this.informacionPasante[7]}}">
         </div>
     </div>
     <div class="informacion">
@@ -23,7 +23,7 @@
         <div class="datosPasante">
             <div class="par">
                 <label class="pas neg" for="">Codigo:</label>
-                <label class="pas" >{{this.informacionPasante[0]}}</label>
+                <label class="pas">{{this.informacionPasante[0]}}</label>
                 <label class="pas neg" for="">Sede: </label>
                 <label class="pas" for="">{{this.informacionPasante[3]}}</label>
             </div>
@@ -43,141 +43,156 @@
     </div>
 </div>
 
-
-<div class="fondo">
-    <div class="container">
-        <div class="cont">
-            <h3>Practicas Libres</h3>
-        </div>
-        <div class="containerTabla">
-            <table style="width:100%">
-                <tr>
-                    <td class="init">
-                        Nombre Estudiante
-                    </td>
-                    <td>
-                        Curso
-                    </td>
-                    <td>
-                        Espacio
-                    </td>
-                    <td>
-                        Deporte
-                    </td>
-                    <td>
-                        Estado
-                    </td>
-                    <td class="end">
-                        Asistencia
-                    </td>
-                </tr>
-                <tr>
-                    <th class="init">
-                        Nombre Estudiante
-                    </th>
-                    <th>
-                        Curso
-                    </th>
-                    <th>
-                        Espacio
-                    </th>
-                    <th>
-                        Deporte
-                    </th>
-                    <th>
-                        Estado
-                    </th>
-                    <th class="end">
-                        <button><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2-circle" viewBox="0 0 16 16">
-                            <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z"/>
-                            <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z"/>
-                        </svg> Asistencia </button>
-                    </th>
-                </tr>
-            </table>
-        </div>
-    </div>
+<div class="alerta" *ngIf="state == 'NONE'">
+    <p>{{mensaje}}</p>
 </div>
-<div class="materiales">
-    <div class="containerMateriales">
-        <h4>Materiales Disponibles</h4>
-        <div class="matable">
-        <table style="width:100%">
-            <tr>
-                <td class="init">
-                    Elemento
-                </td>
-                <td>
-                    Estado
-                </td>
-                <td class="end">
-                    Agregar
-                </td>
-            </tr>
-            <tr>
-                <th class="init">
 
-                </th>
-                <th>
+<div *ngIf="state == 'CLASS'">
 
-                </th>
-                <th class="end">  
-                    <a><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
-                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
-                        </svg></a> 
-                </th>
-            </tr>
-           
-        </table>
-        <button>Guardar</button>
+    <div class="fondo">
+        <div class="container">
+            <div class="cont">
+                <h3>Practicas Libres</h3>
+            </div>
+            <div class="containerTabla">
+                <table style="width:100%">
+                    <tr>
+                        <td class="init">
+                            Nombre Pasante
+                        </td>
+                        <td>
+                            Curso
+                        </td>
+                        <td>
+                            Espacio
+                        </td>
+                        <td>
+                            Deporte
+                        </td>
+                        <td>
+                            Cantidad inscritos
+                        </td>
+                        <td class="end">
+                            Asistencia
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="init">
+                            {{this.informacionPasante[1]}}  {{this.informacionPasante[2]}} 
+                        </th>
+                        <th>
+                            {{informacionClase[0]}}
+                        </th>
+                        <th>
+                            {{informacionClase[1]}}
+                        </th>
+                        <th>
+                            {{informacionClase[2]}}
+                        </th>
+                        <th>
+                            {{informacionClase[3]}}
+                        </th>
+                        <th class="end">
+                            <button (click)="crearAsistenciaPas()" *ngIf="_state=='ADD'" ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-check2-circle" viewBox="0 0 16 16">
+                                    <path
+                                        d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z" />
+                                    <path
+                                        d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z" />
+                                </svg> Asistencia </button>
+                        </th>
+                    </tr>
+                </table>
+            </div>
+        </div>
     </div>
-    </div>
-    <div class="containerMateriales">
-    <h4>Materiales No Disponibles</h4>
-    <div class="matable">
-        <table style="width:100%">
-            <tr>
-                <td class="init">
-                    Elemento
-                </td>
-                <td class="end">
-                    Estado
-                </td>
-            </tr>
-            <tr>
-                <th class="init">
+    <div class="materiales">
+        <div class="containerMateriales">
+            <h4>Materiales Disponibles</h4>
+            <div class="matable">
+                <table style="width:100%">
+                    <tr>
+                        <td class="init">
+                            Ind
+                        </td>
+                        <td >
+                            Elemento
+                        </td>
+                        <td>
+                            Estado
+                        </td>
+                        <td class="end">
+                            Agregar
+                        </td>
+                    </tr>
+                    <tr *ngFor="let material of informacionEquiposD; let i= index">
+                        <th class="init">
+                           {{i}}
+                        </th>
+                        <th>
+                            {{material[3]}}
+                        </th>
+                        <th>
+                            {{material[1]}}
+                        </th>
+                        <th class="end">  
+                            <a (click)="agregar(i)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
+                                </svg></a> 
+                        </th>
+                    </tr>
 
-                </th>
-                <th class="end">
+                </table>
+                <button (click)="cambiarEstado()">Guardar</button>
+            </div>
+        </div>
+        <div class="containerMateriales">
+            <h4>Materiales No Disponibles</h4>
+            <div class="matable">
+                <table style="width:100%">
+                    <tr>
+                        <td class="init">
+                            Elemento
+                        </td>
+                        <td class="end">
+                            Estado
+                        </td>
+                    </tr>
+                    <tr *ngFor="let equipo of informacionEquiposND" >
+                        <th class="init">
+                            {{equipo[0]}}
+                        </th>
+                        <th class="end">
+                            {{equipo[1]}}
+                        </th>
+                    </tr>
 
-                </th>
-            </tr>
-           
-        </table>
-    </div>
-    </div>
-    <div class="containerMateriales">
-    <h4>Materiales Practica</h4>
-    <div class="matable">
-        <table style="width:100%">
-            <tr>
-                <td class="init">
-                    Elemento
-                </td>
-                <td class="end">
-                    Estado
-                </td>
-            </tr>
-            <tr>
-                <th class="init">
+                </table>
+            </div>
+        </div>
+        <div class="containerMateriales">
+            <h4>Materiales Practica</h4>
+            <div class="matable">
+                <table style="width:100%">
+                    <tr>
+                        <td class="init">
+                            Elemento
+                        </td>
+                        <td class="end">
+                            Estado
+                        </td>
+                    </tr>
+                    <tr *ngFor="let equipo of equiposPrestados" >
+                        <th class="init">
+                            {{equipo[0]}}
+                        </th>
+                        <th class="end">
+                            {{equipo[0]}}
+                        </th>
+                    </tr>
+                </table>
+            </div>
+        </div>
 
-                </th>
-                <th class="end">
-                    
-                </th>
-            </tr>
-        </table>
     </div>
-    </div>
-   
 </div>

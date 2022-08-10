@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { asistenciaEquipo } from 'src/interface/asistencia';
 import { AsistenciasService } from 'src/service/asistencias.service';
 
 @Component({
@@ -14,6 +15,14 @@ export class AsisteciaEquipoComponent implements OnInit {
   idEquipo ='';
   idsEquipo =[];
   informacionEquipo=[];
+  mensaje = '';
+  public state: 'CLASS'|'NONE' = 'CLASS';
+
+  asistencia : asistenciaEquipo={
+    codigo: '',
+    equipo : '',
+  };
+
   ngOnInit(): void {
 
     this.asisService.getequipos().subscribe((response:[])=>{
@@ -29,6 +38,27 @@ export class AsisteciaEquipoComponent implements OnInit {
         console.log(this.informacionEquipo)
       }
     );
+  }
+
+  public registrarAsistencia(){
+    this.asistencia.equipo = this.idEquipo;
+    this.asistencia.codigo = this.idEstudiante
+    this.asisService.createAistenciaEquipo(this.asistencia).subscribe({
+      next: (resp) => {
+        // this.alertService.success('User added', { keepAfterRouteChange: true });
+        console.log(resp)
+        if(resp == 'Asistencia Registrada'){
+          this.consultarEstudiante()
+        }else{
+          this.state = 'NONE';
+          this.mensaje = resp;
+        }
+        
+      },
+      error: error => {
+        console.log(error);
+      }
+    });
   }
 
 
