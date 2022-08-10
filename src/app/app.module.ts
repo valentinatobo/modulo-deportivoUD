@@ -5,6 +5,7 @@ import { Injectable } from "@angular/core";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AsistenciaModule } from './asistencia/asistencia.module';
+import { PublicModule } from 'src/public/public.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { AsistenciaModule } from './asistencia/asistencia.module';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    AsistenciaModule
+    AsistenciaModule,
+    PublicModule
   ],
   providers: [],
   bootstrap: [AppComponent]

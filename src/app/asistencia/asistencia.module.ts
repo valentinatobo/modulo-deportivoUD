@@ -4,7 +4,6 @@ import { AsisteciaPasanteComponent } from './asistecia-pasante/asistecia-pasante
 import { AsisteciaEquipoComponent } from './asistecia-equipo/asistecia-equipo.component';
 import { AsisteciaProfesorComponent } from './asistecia-profesor/asistecia-profesor.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { FormControl, Validators } from '@angular/forms';
 
 
 @NgModule({

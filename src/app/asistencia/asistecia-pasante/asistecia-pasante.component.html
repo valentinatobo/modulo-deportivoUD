@@ -1,62 +1,183 @@
-<h1>Asistencia Pasante</h1>
+<div class="titulo">
+    <h2>Asistencia Pasante</h2>
+</div>
 
 <div class="containerdatos">
+
     <div class="input">
-        <input type="text" placeholder="Codigo Estudiante" [(ngModel)]="codigoPasante">
-        <button (click)="consultar()">Consultar</button>
+        <h4 class="titledatos">Datos Consulta</h4>
+        <div class="ing">
+            <input class="cpd" type="text" placeholder="Codigo Estudiante" [(ngModel)]="codigoPasante">
+            <button (click)="consultar()">Consultar</button>
+        </div>
+
+        <div class="containfecha">
+            <label class="fecha neg" for="">Fecha: </label>
+            <label class="fecha" for="">{{this.informacionPasante[5]}} {{this.informacionPasante[6]}}</label>
+            <label for="" class="neg">Hora: </label>
+            <input class="hora" type="time" value="{{this.informacionPasante[6]}}">
+        </div>
     </div>
     <div class="informacion">
+        <h4 class="titlePAS">Datos Pasante</h4>
         <div class="datosPasante">
-            <label for="">Codigo: {{this.informacionPasante[0]}}</label>
-            <label for="">Nombre: {{this.informacionPasante[1]}} </label>
-            <label for="">Apellido: {{this.informacionPasante[2]}}</label>
-        </div>
-        <div class="datosPasante">
-            <label for="">Correo: {{this.informacionPasante[4]}}</label>
-            <label for="">Sede: {{this.informacionPasante[3]}}</label>
-            <label for="">Periodo: {{this.informacionPasante[6]}} </label>
-        </div>
-        <div class="containfecha">
-            <label for="">Fecha: {{this.informacionPasante[5]}} {{this.informacionPasante[6]}}</label>
-
-            <label for="">Hora</label>
-            <input type="time">
+            <div class="par">
+                <label class="pas neg" for="">Codigo:</label>
+                <label class="pas" >{{this.informacionPasante[0]}}</label>
+                <label class="pas neg" for="">Sede: </label>
+                <label class="pas" for="">{{this.informacionPasante[3]}}</label>
+            </div>
+            <div class="par">
+                <label class="pas neg" for="">Nombre: </label>
+                <label class="pas" for="">{{this.informacionPasante[1]}} </label>
+                <label class="pas neg" for="">Apellido: </label>
+                <label class="pas" for="">{{this.informacionPasante[2]}}</label>
+            </div>
+            <div class="par">
+                <label class="pas neg" for="">Correo: </label>
+                <label class="pas" for="">{{this.informacionPasante[4]}}</label>
+                <label class="pas neg" for="">Periodo: </label>
+                <label class="pas" for="">{{this.informacionPasante[6]}} </label>
+            </div>
         </div>
     </div>
 </div>
 
-<div class="containerTabla">
-    <h3>Asistencia Pasante</h3>
-    <table>
-        <tr>
-            <td>
-                Nombre Estudiante
-            </td>
-            <td>
-                Curso
-            </td>
-            <td>
-                Espacio
-            </td>
-            <td>
-                Deporte
-            </td>
-            <td>
-                Estado
-            </td>
-            <td>
-                Elementos
-            </td>
-        </tr>
-    </table>
-</div>
 
-<div class="containerMateriales">
-    <h4>Materiales Disponibles</h4>
-    <p></p>
+<div class="fondo">
+    <div class="container">
+        <div class="cont">
+            <h3>Practicas Libres</h3>
+        </div>
+        <div class="containerTabla">
+            <table style="width:100%">
+                <tr>
+                    <td class="init">
+                        Nombre Estudiante
+                    </td>
+                    <td>
+                        Curso
+                    </td>
+                    <td>
+                        Espacio
+                    </td>
+                    <td>
+                        Deporte
+                    </td>
+                    <td>
+                        Estado
+                    </td>
+                    <td class="end">
+                        Asistencia
+                    </td>
+                </tr>
+                <tr>
+                    <th class="init">
+                        Nombre Estudiante
+                    </th>
+                    <th>
+                        Curso
+                    </th>
+                    <th>
+                        Espacio
+                    </th>
+                    <th>
+                        Deporte
+                    </th>
+                    <th>
+                        Estado
+                    </th>
+                    <th class="end">
+                        <button><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2-circle" viewBox="0 0 16 16">
+                            <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z"/>
+                            <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z"/>
+                        </svg> Asistencia </button>
+                    </th>
+                </tr>
+            </table>
+        </div>
+    </div>
 </div>
-<div class="containerMateriales">
+<div class="materiales">
+    <div class="containerMateriales">
+        <h4>Materiales Disponibles</h4>
+        <div class="matable">
+        <table style="width:100%">
+            <tr>
+                <td class="init">
+                    Elemento
+                </td>
+                <td>
+                    Estado
+                </td>
+                <td class="end">
+                    Agregar
+                </td>
+            </tr>
+            <tr>
+                <th class="init">
+
+                </th>
+                <th>
+
+                </th>
+                <th class="end">  
+                    <a><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
+                        </svg></a> 
+                </th>
+            </tr>
+           
+        </table>
+        <button>Guardar</button>
+    </div>
+    </div>
+    <div class="containerMateriales">
+    <h4>Materiales No Disponibles</h4>
+    <div class="matable">
+        <table style="width:100%">
+            <tr>
+                <td class="init">
+                    Elemento
+                </td>
+                <td class="end">
+                    Estado
+                </td>
+            </tr>
+            <tr>
+                <th class="init">
+
+                </th>
+                <th class="end">
+
+                </th>
+            </tr>
+           
+        </table>
+    </div>
+    </div>
+    <div class="containerMateriales">
     <h4>Materiales Practica</h4>
-    <p></p>
+    <div class="matable">
+        <table style="width:100%">
+            <tr>
+                <td class="init">
+                    Elemento
+                </td>
+                <td class="end">
+                    Estado
+                </td>
+            </tr>
+            <tr>
+                <th class="init">
+
+                </th>
+                <th class="end">
+                    
+                </th>
+            </tr>
+        </table>
+    </div>
+    </div>
+   
 </div>
-<button>Guardar</button>

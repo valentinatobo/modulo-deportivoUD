@@ -1,33 +1,75 @@
-<div class="container-Equipo">
-    <input type="text" name="" id="" placeholder="Codigo Estudiante">
-    <label for="">Nombre Estudiante</label>
-    <select name="" id="">
-        <option value="">Equipo</option>
-        <option value="">1</option>
-        <option value="">2</option>
-    </select>
-    <button>Registrar</button>
+<div class="titulo">
+    <h2>Asistencia Equipo</h2>
 </div>
 
-<div class="containerTabla">
-    <h3>Asistencia Equipo</h3>
-    <table>
-        <tr>
-            <td>
-                Nombre Estudiante
-            </td>
-            <td>
-                Codigo
-            </td>
-            <td>
-                Deporte
-            </td>
-            <td>
-                Sede
-            </td>
-            <td>
-                <button>Asistencia </button>
-            </td>
-        </tr>
-    </table>
+
+
+<div class="containerdatos">
+
+    <div class="input">
+        <h4 class="titledatos">Datos Consulta</h4>
+        <div class="ing">
+            <label for="">Nombre Estudiante</label>
+            <input type="text" name="" id="" placeholder="Codigo Estudiante" [(ngModel)]="idEstudiante">
+
+        </div>
+        <div class="containfecha">
+            <select name="" id="" [(ngModel)]="idEquipo" >
+                <option value="">Equipo</option>
+                <option *ngFor="let equipo of idsEquipo" value="{{equipo[0]}}">{{equipo[0]}}</option>
+            </select>
+            <button (click)="consultarEstudiante()">Registrar</button>
+        </div>
+    </div>
 </div>
+
+
+<div class="fondo">
+    <div class="container">
+        <div class="cont">
+            <h3>Asistencia Equipo</h3>
+        </div>
+        <div class="containerTabla">
+            <table style="width:100%">
+                <tr>
+                    <td class="init">
+                        Nombre Estudiante
+                    </td>
+                    <td>
+                        Codigo
+                    </td>
+                    <td>
+                        Deporte
+                    </td>
+                    <td >
+                        Sede
+                    </td>
+                    <td class="end">
+                        Asistencia
+                    </td>
+                </tr>
+                <tr>
+                    <th class="init">
+                        {{this.informacionEquipo[2]}}
+                    </th>
+                    <th>
+                        {{this.informacionEquipo[1]}}
+                    </th>
+                    <th>
+                        {{this.informacionEquipo[3]}}
+                    </th>
+                    <th>
+                        {{this.informacionEquipo[4]}}
+                    </th>
+                    <th class="end">
+                        <button><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-check2-circle" viewBox="0 0 16 16">
+                            <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z"/>
+                            <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z"/>
+                          </svg>  Asistencia </button>
+                    </th>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+

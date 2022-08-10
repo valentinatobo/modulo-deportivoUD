@@ -5,7 +5,7 @@ import { IngresoService } from 'src/service/ingreso.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.sass']
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
 
@@ -19,6 +19,14 @@ export class AppComponent implements OnInit {
   }
   ngOnInit(): void {
     this.getUsuario();
+    this.loginService.getUsuario('63').subscribe(
+      (response: any) => {
+        this.datosUsuario = response;
+        this.codCargo = response[0];
+        // this.getInicialesUsuario(response[1]);
+        console.log(this.datosUsuario)
+      }
+    );
   }
 
   public getUsuario(){
